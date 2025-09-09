@@ -1,21 +1,12 @@
-from fastapi import FastAPI
-from pydantic import BaseModel, HttpUrl
-import time
+from fastapi import APIRouter
+from app.core.config import RAW_DIR, PROCESSED_DIR, SPLITS_DIR
 
-router = FastAPI()
+router = APIRouter()
 
-class AnalysisReq(BaseModel):
-    image_url: HttpUrl | str
-    options: dict | None = None
-
-@router.post("/analyze")
-async def analysis(req: AnalysisReq):
-    t0 = time.time()
+@router.get("/debug-data-paths")
+async def debug_data_paths():
     return {
-        "analysis_id": f"an_{int(t0)}",
-        "findings": [
-            {"tooth": 11, "issue": "caries", "severity": "mild", "confidence": 0.92}
-        ],
-        "overlay_url": "https://example.com/overlay.png",
-        "duration_ms": int((time.time()-t0)*1000)
+        "raw": str(RAW_DIR), "raw_exists": RAW_DIR.exists(),
+        "processed": str(PROCESSED_DIR), "processed_exists": PROCESSED_DIR.exists(),
+        "splits": str(SPLITS_DIR), "splits_exists": SPLITS_DIR.exists(),
     }

@@ -240,3 +240,47 @@ dump.rdb
 
 # Generated documentation
 docs/_build/
+
+# docker & build
+dist/
+build/
+*.log
+*.tmp
+
+# data (không đưa dữ liệu thật lên Git)
+ai-service/data/
+!ai-service/data/**/README.md   # cho phép giữ file README mô tả
+ai-service/models_ai/checkpoints/
+ai-service/models_ai/outputs/
+
+# notebooks & artifacts
+**/*.ipynb_checkpoints/
+*.ckpt
+*.pth
+*.pt
+*.onnx
+*.h5
+*.npz
+*.npy
+
+# OS
+.DS_Store
+Thumbs.db
+
+# data nặng & artifacts
+ai-service/data/
+!ai-service/data/**/README.md
+
+# scripts cache (tuỳ chọn)
+scripts/data/
+!scripts/data/**/README.md
+
+# checkpoints/models
+ai-service/models_ai/checkpoints/
+ai-service/models_ai/outputs/
+
+# python/node
+.venv/
+**/__pycache__/
+node_modules/
+.env

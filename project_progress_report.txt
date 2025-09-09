@@ -1,0 +1,74 @@
+Dental AI Platform - Project Progress Report
+=========================================
+
+I. Đã làm rồi (Completed)
+-------------------------
+1. Kiến trúc hệ thống:
+   - Đã thiết kế kiến trúc microservices: Frontend (React), Gateway (Node.js/Express/Prisma), AI Service (Python/FastAPI), Database (Postgres), Storage (MinIO), Cache (Redis).
+   - Đã cấu hình Docker Compose để chạy toàn bộ hệ thống.
+
+2. Frontend:
+   - Đã khởi tạo project React + TypeScript + Vite, cấu hình ESLint, TypeScript.
+   - Đã có giao diện mẫu (App.tsx, main.tsx, index.html, CSS).
+   - Đã cài đặt các package cơ bản: react, react-dom, react-router-dom, zustand, axios, @tanstack/react-query.
+
+3. Gateway:
+   - Đã khởi tạo project Node.js + TypeScript, cấu hình Prisma ORM, Dockerfile.
+   - Đã có các route cơ bản: /uploads (mock), /analysis (tạo và lấy kết quả phân tích).
+   - Đã có migration schema cho User, Image, Analysis.
+   - Đã cấu hình .env, scripts Prisma migrate/generate.
+
+4. AI Service:
+   - Đã khởi tạo project Python + FastAPI, Dockerfile, requirements.txt.
+   - Đã có route mẫu /debug-data-paths kiểm tra đường dẫn dữ liệu.
+   - Đã cấu hình đọc biến môi trường DATA_ROOT, RAW_DIR, PROCESSED_DIR, SPLITS_DIR.
+
+5. Scripts:
+   - Đã có script Python để chuẩn bị, chia tách, xuất dữ liệu COCO, visualize dataset (download_and_prepare_dental_dataset.py).
+   - Đã có requirements.txt cho scripts.
+
+6. Data:
+   - Đã tổ chức thư mục dữ liệu: raw, processed, splits, các dataset mẫu (children-panorama, ...).
+
+7. Tài liệu:
+   - Đã có README chi tiết về kiến trúc, cách cài đặt, sử dụng, troubleshooting, API endpoints.
+   - Đã có .env.example cho các service.
+
+II. Chưa làm (Pending/TODO)
+--------------------------
+1. Frontend:
+   - Chưa có giao diện thực tế cho upload ảnh, xem kết quả phân tích, chat, mô phỏng.
+   - Chưa kết nối API thực tế với Gateway/AI Service.
+   - Chưa có quản lý user, đăng nhập, phân quyền.
+
+2. Gateway:
+   - Route /uploads mới trả về mock URL, chưa ký pre-signed URL MinIO/S3 thực tế.
+   - Chưa có các route chat, simulations, user management, xác thực JWT.
+   - Chưa validate dữ liệu đầu vào, chưa xử lý lỗi chi tiết.
+   - Chưa có unit test cho các route/service.
+
+3. AI Service:
+   - Chưa có các route thực tế cho /analysis, /chat, /simulation.
+   - Chưa tích hợp model AI thực tế (chỉ có route mẫu).
+   - Chưa có unit test cho API.
+   - Chưa có script train/infer cho các model AI.
+
+4. Data:
+   - Chưa có script tự động download, chuẩn hóa, kiểm tra chất lượng dữ liệu.
+   - Chưa có mô tả chi tiết cho từng dataset.
+
+5. DevOps:
+   - Chưa có CI/CD pipeline.
+   - Chưa có monitoring/logging cho các service.
+   - Chưa có script backup/restore tự động cho database.
+
+6. Tài liệu:
+   - Chưa có API docs chi tiết cho từng service (chỉ có mô tả tổng quan trong README).
+   - Chưa có hướng dẫn đóng góp, quy trình phát triển.
+
+III. Ghi chú khác
+-----------------
+- Một số phần đã có cấu trúc, nhưng chưa hoàn thiện logic thực tế (ví dụ: các route, các script, các service AI).
+- Nên bổ sung TODO trong code cho các phần chưa làm.
+
+Cập nhật: 03/09/2025

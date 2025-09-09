@@ -1,0 +1,69 @@
+HƯỚNG DẪN KẾT NỐI ĐẾN POSTGRESQL BẰNG NAVICAT
+============================================
+
+1. Yêu cầu hệ thống
+-------------------
+- Đã cài đặt Navicat (hoặc phần mềm quản lý database tương tự)
+- Đã cài đặt PostgreSQL server (có thể chạy qua Docker hoặc cài trực tiếp)
+- Biết thông tin kết nối: host, port, database, user, password
+
+2. Thông tin kết nối mẫu
+------------------------
+- Host: localhost
+- Port: 5432
+- Initial Database: postgres (hoặc tên database của bạn, ví dụ: dental_ai_platform)
+- User Name: postgres
+- Password: <mật khẩu của bạn> (ví dụ: your_secure_password)
+
+3. Các bước thực hiện
+---------------------
+Bước 1: Mở Navicat, chọn "Connection" > "PostgreSQL"
+
+Bước 2: Nhập thông tin kết nối như sau:
+- Connection Name: Đặt tên tuỳ ý (ví dụ: DentalAI-Local)
+- Host: localhost
+- Port: 5432
+- Initial Database: postgres hoặc dental_ai_platform
+- User Name: postgres
+- Password: <mật khẩu của bạn>
+- Tích chọn "Save password" để lưu mật khẩu
+
+Bước 3: Nhấn "Test Connection" để kiểm tra kết nối
+- Nếu hiện thông báo "Connection successful" là OK
+- Nếu lỗi, kiểm tra lại các thông tin trên hoặc kiểm tra xem PostgreSQL đã chạy chưa
+
+Bước 4: Nhấn "OK" để lưu kết nối
+
+4. Lưu ý khi dùng Docker
+------------------------
+- Nếu chạy PostgreSQL bằng Docker Compose, đảm bảo service "db" đã chạy:
+  docker-compose ps db
+- Nếu dùng cổng khác, sửa lại Port cho đúng (mặc định là 5432)
+- Nếu kết nối từ máy khác, thay "localhost" bằng IP của server
+
+5. Tham khảo cấu hình .env
+--------------------------
+Trong file .env của dự án:
+POSTGRES_DB=dental_ai_platform
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=your_secure_password
+
+Kết nối sẽ là:
+- Database: dental_ai_platform
+- User: postgres
+- Password: your_secure_password
+
+6. Troubleshooting
+------------------
+- Nếu không kết nối được:
+  + Kiểm tra lại password, user, database
+  + Kiểm tra firewall, port
+  + Kiểm tra container PostgreSQL đã chạy chưa
+  + Kiểm tra log Navicat hoặc log PostgreSQL
+
+7. Hình minh hoạ
+----------------
+- Xem ảnh đính kèm để biết cách điền thông tin trong Navicat
+
+---
+Cập nhật: 03/09/2025
